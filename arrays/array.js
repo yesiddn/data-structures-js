@@ -1,4 +1,4 @@
-// Forma normal de declarar un array y asignarle valores
+// Forma usual  de declarar un array y asignarle valores
 const array = ['Duvan', 'Diego', 'Katherine', 'Karten'];
 
 array.push('Ana'); // Agrega un elemento al final del array
@@ -10,10 +10,12 @@ class MyArray {
     this.data = {};
   }
 
+  // Metodo para obtener un elemento del array
   get(index) {
     return this.data[index];
   }
 
+  // Metodo para agregar un elemento al final del array
   push(item) {
     this.data[this.length] = item;
     this.length++;
