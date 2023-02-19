@@ -21,6 +21,21 @@ class MyArray {
     this.length--;
     return lastItem;
   }
+
+  // Metodo para eliminar un elemento de un array en una posición específica
+  myDetele(index) {
+    const item = this.data[index];
+    this.shiftIndex(index);
+    return item;
+  }
+
+  shiftIndex(index) {
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
 }
 
 const newArray = new MyArray();
@@ -31,3 +46,4 @@ newArray.push('Katherine');
 newArray.push('Oscar');
 
 newArray.pop();
+newArray.myDetele(1);
