@@ -43,12 +43,35 @@ class MyArray {
   }
 
   // Method to adds an element to the beginning of an array and returns the new length of the array
+  /*
   unshift(item) {
     for (let i = this.length; i > 0; i--) {
       this.data[i] = this.data[i - 1];
     }
     this.data[0] = item;
     this.length++;
+    return this.length;
+  }
+  */
+  
+  // Method to adds one or more elements to the beginning of an array and returns the new length of the array
+  unshift(...item) {
+    if (item === 0) {
+      for (let i = this.length; i > 0; i--) {
+        this.data[i] = this.data[i - 1];
+      }
+      this.data[0] = item;
+      this.length++;
+    } else {
+      this.length += item.length;
+      for (let i = this.length - 1; i >= item.length; i--) {
+        this.data[i] = this.data[i - item.length];
+      } // for para reacomodar los elementos del array tantos espacios hacia arriba como elementos se agreguen al principio del array
+
+      for (let i = 0; i < item.length; i++) {
+        this.data[i] = item[i];
+      } // for para agregar los elementos al principio del array
+    }
     return this.length;
   }
 }
@@ -63,4 +86,4 @@ newArray.push('Oscar');
 // newArray.pop();
 // newArray.myDetele(1);
 // newArray.shift();
-newArray.unshift('Ana');
+newArray.unshift('Ana', 'Juan');
