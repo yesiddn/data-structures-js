@@ -41,6 +41,16 @@ class MyArray {
   shift() {
     return this.myDetele(0);
   }
+
+  // Method to adds an element to the beginning of an array and returns the new length of the array
+  unshift(item) {
+    for (let i = this.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+    this.data[0] = item;
+    this.length++;
+    return this.length;
+  }
 }
 
 const newArray = new MyArray();
@@ -52,4 +62,5 @@ newArray.push('Oscar');
 
 // newArray.pop();
 // newArray.myDetele(1);
-newArray.shift();
+// newArray.shift();
+newArray.unshift('Ana');
