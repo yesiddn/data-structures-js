@@ -47,6 +47,24 @@ class HashTable {
     ]
     */
   }
+
+  // delete method
+  delete(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
+
+    if (currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          const deleted = currentBucket[i];
+          currentBucket.splice(i, 1);
+          return deleted;
+        }
+      }
+    }
+
+    return undefined;
+  }
 }
 
 const myFirstHashTable = new HashTable(50); // 50 buckets
