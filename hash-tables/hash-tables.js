@@ -26,6 +26,27 @@ class HashTable {
     }
     return undefined;
   }
+  
+  // Get all keys
+  getAllKeys() {
+    const keys = [];
+
+    for (let i = 0; i < this.data.length; i++) {
+      const currentBucket = this.data[i];
+      
+      if (currentBucket) {
+        if (currentBucket.length === 1) {
+          keys.push(currentBucket[0][0]);          
+        } else if (currentBucket.length > 1) {
+          for (let j = 0; j < currentBucket.length; j++) {
+            keys.push(currentBucket[j][0]);
+          }          
+        }
+      }
+    }
+
+    return keys;
+  }
 
   // Set method
   set(key, value) {
