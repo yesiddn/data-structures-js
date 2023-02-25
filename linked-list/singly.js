@@ -23,6 +23,7 @@ class Node {
     this.next = null;
   }
 }
+
 class SinglyLikedList {
   constructor(value) {
     this.head = {
@@ -33,6 +34,19 @@ class SinglyLikedList {
 
     this.length = 1;
   }
+
+  // append method
+  // add a new node to the end of the linked list
+  append(value) {
+    const newNode = new Node(value);
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+    
+    this.length++;
+  }
 }
 
 let singly = new SinglyLikedList(1);
+
+singly.append(2);
