@@ -45,8 +45,22 @@ class SinglyLikedList {
     
     this.length++;
   }
+
+  // prepend method
+  // add a new node to the beginning of the linked list
+  prepend(value) {
+    const newNode = new Node(value);
+
+    newNode.next = this.head;
+    this.head = newNode;
+
+    this.length++;
+  }
 }
 
 let singly = new SinglyLikedList(1);
 
 singly.append(2);
+singly.append(3);
+
+singly.prepend(0);
