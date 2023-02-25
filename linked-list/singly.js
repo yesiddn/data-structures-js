@@ -1,4 +1,4 @@
-let singlyLinkedList = {
+let mySinglyLinkedList = {
   head: {
     value: 1,
     next: {
@@ -16,3 +16,23 @@ let singlyLinkedList = {
     }
   }
 };
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+class SinglyLikedList {
+  constructor(value) {
+    this.head = {
+      value,
+      next: null,
+    }
+    this.tail = this.head;
+
+    this.length = 1;
+  }
+}
+
+let singly = new SinglyLikedList(1);
