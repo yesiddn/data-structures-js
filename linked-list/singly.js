@@ -45,7 +45,7 @@ class SinglyLikedList {
     
     this.length++;
   }
-
+  
   // prepend method
   // add a new node to the beginning of the linked list
   prepend(value) {
@@ -55,6 +55,36 @@ class SinglyLikedList {
     this.head = newNode;
 
     this.length++;
+  }
+
+  // getTheIndex method to get the node at a specific index
+  getTheIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
+
+  // insert method
+  insert(index, value) {
+    if (this.length <= index) {
+      console.log('Index out of range, the value will be added at the end of the list');
+      return this.append(value);
+    }
+
+    const newNode = new Node(value);
+    const firtPointer = this.getTheIndex(index - 1); // recupera el nodo anterior al index
+    const holdingPointer = firtPointer.next; // se guarda el nodo que se va a desplazar a la siguiente posicion para que el carbage collector no lo borre
+    firtPointer.next = newNode;
+    newNode.next = holdingPointer;
+
+    this.length++;
+    return this;
   }
 }
 
