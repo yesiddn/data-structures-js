@@ -81,9 +81,10 @@ class SinglyLikedList {
     }
 
     const newNode = new Node(value);
-    const firtPointer = this.getTheIndex(index - 1); // recupera el nodo anterior al index
-    const holdingPointer = firtPointer.next; // se guarda el nodo que se va a desplazar a la siguiente posicion para que el carbage collector no lo borre
-    firtPointer.next = newNode;
+
+    const firstPointer = this.getTheIndex(index - 1); // recupera el nodo anterior al index
+    const holdingPointer = firstPointer.next; // se guarda el nodo que se va a desplazar a la siguiente posicion para que el carbage collector no lo borre
+    firstPointer.next = newNode;
     newNode.next = holdingPointer;
 
     this.length++;
