@@ -90,11 +90,51 @@ class SinglyLikedList {
     this.length++;
     return this;
   }
+
+  // remove method
+  remove(index) {
+    // check params
+    // if index is out of range
+    if (this.length <= index) {
+      console.log('Index out of range');
+      return this;
+    }
+
+    // if index is head
+    if (index === 0) {
+      this.head = this.head.next;
+      this.length--;
+      return this;
+    }
+
+    // if index is tail
+    if (index === this.length - 1) {
+      const firstPointer = this.getTheIndex(index - 1);
+      firstPointer.next = null;
+      this.tail = firstPointer;
+
+      this.length--;
+      return this;
+    }
+
+    // if index is in the middle
+    const firstPointer = this.getTheIndex(index - 1); // recupera el nodo anterior al index
+    const holdingPointer = firstPointer.next.next; // se guarda el siguiente nodo al que se va a eliminar
+    firstPointer.next = holdingPointer;
+
+    // Se deja que el garbage collector elimine el nodo
+    this.length--;
+    return this;
+  }
 }
 
 let singly = new SinglyLikedList(1);
 
-doubly.append(2);
-doubly.append(3);
+singly.append(2);
+singly.append(3);
 
-doubly.prepend(0);
+singly.prepend(0);
+
+singly.insert(2, 4);
+
+singly.remove(2);
