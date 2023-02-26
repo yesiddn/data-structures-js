@@ -30,4 +30,23 @@ class DoublyLikedList {
     this.length++;
     return this;
   }
+
+  // prepend method
+  // add a new node to the beginning of the linked list
+  prepend(value) {
+    const newNode = new Node(value);
+
+    this.head.prev = newNode;
+    newNode.next = this.head;
+    this.head = newNode;
+
+    this.length++;
+  }
 }
+
+let doubly = new DoublyLikedList(1);
+
+doubly.append(2);
+doubly.append(3);
+
+doubly.prepend(0);

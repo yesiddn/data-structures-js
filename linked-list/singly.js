@@ -9,12 +9,12 @@ let mySinglyLinkedList = {
           value: 4,
           next: {
             value: 5,
-            next: null
-          }
-        }
-      }
-    }
-  }
+            next: null,
+          },
+        },
+      },
+    },
+  },
 };
 
 class Node {
@@ -29,7 +29,7 @@ class SinglyLikedList {
     this.head = {
       value,
       next: null,
-    }
+    };
     this.tail = this.head;
 
     this.length = 1;
@@ -42,11 +42,11 @@ class SinglyLikedList {
 
     this.tail.next = newNode;
     this.tail = newNode;
-    
+
     this.length++;
     return this;
   }
-  
+
   // prepend method
   // add a new node to the beginning of the linked list
   prepend(value) {
@@ -74,7 +74,9 @@ class SinglyLikedList {
   // insert method
   insert(index, value) {
     if (this.length <= index) {
-      console.log('Index out of range, the value will be added at the end of the list');
+      console.log(
+        'Index out of range, the value will be added at the end of the list'
+      );
       return this.append(value);
     }
 
@@ -91,7 +93,7 @@ class SinglyLikedList {
 
 let singly = new SinglyLikedList(1);
 
-singly.append(2);
-singly.append(3);
+doubly.append(2);
+doubly.append(3);
 
-singly.prepend(0);
+doubly.prepend(0);
