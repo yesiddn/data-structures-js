@@ -44,6 +44,7 @@ class SinglyLikedList {
     this.tail = newNode;
     
     this.length++;
+    return this;
   }
   
   // prepend method

@@ -17,4 +17,17 @@ class DoublyLikedList {
 
     this.length = 1;
   }
+
+  // append method
+  // add a new node to the end of the linked list
+  append(value) {
+    const newNode = new Node(value);
+
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode;
+
+    this.length++;
+    return this;
+  }
 }
