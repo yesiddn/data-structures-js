@@ -12,10 +12,14 @@ class Stack {
     this.length = 0;
   }
 
+  // peek method
+  // return the top node of the stack
   peek() {
     return this.top;
   }
 
+  // push method
+  // add a node to the top of the stack
   push(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
@@ -32,5 +36,29 @@ class Stack {
     return this;
   }
 
-  
+  // pop method
+  // remove a node from the top of the stack
+  pop() {
+    if (this.length === 0) {
+      console.log('Stack is empty');
+      return null;
+    } else if (this.length === 1) {
+      this.top = null;
+      this.bottom = null;
+    } else {
+      this.top = this.top.next;
+    }
+
+    this.length--;
+    return this;
+  }
 }
+
+const myStack = new Stack();
+
+myStack.push(1);
+myStack.push(2);
+
+myStack.peek();
+
+myStack.pop();
