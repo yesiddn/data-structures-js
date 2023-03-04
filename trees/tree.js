@@ -67,3 +67,7 @@ tree.insert(2);
 tree.insert(8);
 tree.insert(17);
 tree.insert(120);
+
+tree.search(4);
+tree.search(20);
+tree.search(42);
